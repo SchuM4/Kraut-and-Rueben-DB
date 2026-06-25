@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS krautundrueben;
-CREATE DATABASE IF NOT EXISTS krautundrueben;
-USE krautundrueben;
-
-
 CREATE TABLE KUNDE (
                        KUNDENNR        INTEGER NOT NULL,
                        NACHNAME        VARCHAR(50),
@@ -44,7 +39,7 @@ CREATE TABLE ZUTAT(
 );
 
 CREATE TABLE BESTELLUNG (
-                            BESTELLNR        INTEGER AUTO_INCREMENT NOT NULL,
+                            BESTELLNR        INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
                             KUNDENNR         INTEGER,
                             BESTELLDATUM     DATE,
                             RECHNUNGSBETRAG  DECIMAL(10,2),
