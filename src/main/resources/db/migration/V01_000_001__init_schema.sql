@@ -17,11 +17,11 @@ CREATE TABLE ort
     stadt_nr INTEGER NOT NULL REFERENCES stadt (stadt_nr)
 );
 
-CREATE TABLE bezugseinheit
-(
-    bezugseinheitnr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    einheit         VARCHAR(20) NOT NULL
-);
+-- CREATE TABLE bezugseinheit
+-- (
+--     bezugseinheitnr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     einheit         VARCHAR(20) NOT NULL
+-- );
 
 CREATE TABLE naehrstoffangaben
 (
@@ -36,20 +36,21 @@ CREATE TABLE naehrstoffangaben
     kalorien_kj           NUMERIC(8, 2),
     natrium_g             NUMERIC(8, 2),
     bezugsmenge           NUMERIC(8, 2),
-    bezugseinheitnr       INTEGER NOT NULL REFERENCES bezugseinheit (bezugseinheitnr)
+    bezugseinheit         VARCHAR(20) NOT NULL
+--     bezugseinheitnr       INTEGER NOT NULL REFERENCES bezugseinheit (bezugseinheitnr)
 );
 
-CREATE TABLE ernaehrungskategorie
-(
-    ernaehrungskategorienr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    bezeichnung            VARCHAR(100) NOT NULL
-);
+-- CREATE TABLE ernaehrungskategorie
+-- (
+--     ernaehrungskategorienr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     bezeichnung            VARCHAR(100) NOT NULL
+-- );
 
-CREATE TABLE allergene
-(
-    allergenenr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    bezeichnung VARCHAR(100) NOT NULL
-);
+-- CREATE TABLE allergene
+-- (
+--     allergenenr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--     bezeichnung VARCHAR(100) NOT NULL
+-- );
 
 -- Supplier side
 
@@ -78,8 +79,10 @@ CREATE TABLE zutat
     lieferantennr INTEGER NOT NULL REFERENCES lieferant(lieferantennr),
     bezeichnung VARCHAR(255) NOT NULL,
     bestand NUMERIC(10,2) NOT NULL DEFAULT 0,
-    ernaehrungskategorienr INTEGER REFERENCES ernaehrungskategorie(ernaehrungskategorienr),
-    allergenenr INTEGER REFERENCES allergene(allergenenr),
+    ernaehrungskategorie VARCHAR(50),
+    allergen VARCHAR(50)
+--     ernaehrungskategorienr INTEGER REFERENCES ernaehrungskategorie(ernaehrungskategorienr),
+--     allergenenr INTEGER REFERENCES allergene(allergenenr),
     naehrstoffnr INTEGER UNIQUE REFERENCES naehrstoffangaben(naehrstoffnr)
 );
 
@@ -181,13 +184,13 @@ CREATE TABLE einkaufsauftrag
 
 CREATE INDEX idx_ort_stadtnr ON ort(stadt_nr);
 CREATE INDEX idx_lieferantenkontaktinfo_plz ON lieferantenkontaktinfo(plz);
-CREATE INDEX idx_lieferant_kontaktinfonr ON lieferant(lieferantenkontaktinfonr);
+-- CREATE INDEX idx_lieferant_kontaktinfonr ON lieferant(lieferantenkontaktinfonr);
 CREATE INDEX idx_zutat_lieferantennr ON zutat(lieferantennr);
-CREATE INDEX idx_zutat_ernaehrungskategorienr ON zutat(ernaehrungskategorienr);
-CREATE INDEX idx_zutat_allergenenr ON zutat(allergenenr);
+-- CREATE INDEX idx_zutat_ernaehrungskategorienr ON zutat(ernaehrungskategorienr);
+-- CREATE INDEX idx_zutat_allergenenr ON zutat(allergenenr);
 CREATE INDEX idx_zutat_naehrstoffnr ON zutat(naehrstoffnr);
-CREATE INDEX idx_rezepte_ernaehrungskategorienr ON rezept(ernaehrungskategorienr);
-CREATE INDEX idx_rezepte_allergenenr ON rezept(allergenenr);
+-- CREATE INDEX idx_rezepte_ernaehrungskategorienr ON rezept(ernaehrungskategorienr);
+-- CREATE INDEX idx_rezepte_allergenenr ON rezept(allergenenr);
 CREATE INDEX idx_rezepte_naehrstoffnr ON rezept(naehrstoffnr);
 CREATE INDEX idx_rezeptzutat_rezeptnr ON rezept(rezeptnr);
 CREATE INDEX idx_rezeptzutat_zutatnr ON rezept_zutat(zutatnr);
@@ -201,6 +204,6 @@ CREATE INDEX idx_bestellung_zutat_zutatnr ON bestellung_zutat(zutatnr);
 CREATE INDEX idx_bestellung_rezept_rezeptnr ON bestellung_rezept(rezeptnr);
 CREATE INDEX idx_einkaufsauftrag_lieferantennr ON einkaufsauftrag(lieferantennr);
 CREATE INDEX idx_einkaufsauftrag_zutatennr ON einkaufsauftrag(zutatennr);
-CREATE INDEX idx_naehrstoffangaben_bezugseinheitnr ON naehrstoffangaben(bezugseinheitnr);
+-- CREATE INDEX idx_naehrstoffangaben_bezugseinheitnr ON naehrstoffangaben(bezugseinheitnr);
 
 COMMIT;

@@ -15,6 +15,6 @@ public class Adresse {
     @Column(name = "plz", nullable = false, length = 10)
     private String plz;
 
-    @Column(name = "stadtname", nullable = false) // denormalized from stadt/ort join
-    private String stadtname;
+//    @Column(name = "stadtname", nullable = false) // denormalized from stadt/ort join
+//    private String stadtname;
 }
