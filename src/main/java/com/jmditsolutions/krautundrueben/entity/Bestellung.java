@@ -23,8 +23,7 @@ public class Bestellung {
     @Column(name = "bestelldatum", nullable = false)
     private LocalDate bestelldatum;
 
-    // fixed typo: rerechnungsbetrag → rechnungsbetrag
-    @Column(name = "rerechnungsbetrag", nullable = false, precision = 10, scale = 2)
+    @Column(name = "rechnungsbetrag", nullable = false, precision = 10, scale = 2)
     private BigDecimal rechnungsbetrag = BigDecimal.ZERO;
 
     @OneToOne(mappedBy = "bestellung", cascade = CascadeType.ALL, orphanRemoval = true)

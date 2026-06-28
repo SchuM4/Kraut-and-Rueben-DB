@@ -1,6 +1,5 @@
 package com.jmditsolutions.krautundrueben.entity;
 
-import com.jmditsolutions.krautundrueben.enums.Bezugseinheit;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

@@ -1,7 +1,5 @@
 package com.jmditsolutions.krautundrueben.entity;
 
-import com.jmditsolutions.krautundrueben.enums.Allergen;
-import com.jmditsolutions.krautundrueben.enums.Ernaehrungskategorie;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
