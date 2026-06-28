@@ -44,7 +44,7 @@ public class Naehrstoffangaben {
     @Column(name = "bezugsmenge", precision = 8, scale = 2)
     private BigDecimal bezugsmenge;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "bezugseinheitnr") // rename column in migration to bezugseinheit
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bezugseinheitnr", nullable = false)
     private Bezugseinheit bezugseinheit;
 }

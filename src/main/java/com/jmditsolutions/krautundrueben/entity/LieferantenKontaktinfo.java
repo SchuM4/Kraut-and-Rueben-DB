@@ -3,13 +3,19 @@ package com.jmditsolutions.krautundrueben.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lieferadresse")
-public class Lieferadresse {
+@Table(name = "lieferantenkontaktinfo")
+public class LieferantenKontaktinfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lieferadressenr")
+    @Column(name = "lieferantenkontaktinfonr")
     private Integer id;
+
+    @Column(name = "email", length = 255)
+    private String email;
+
+    @Column(name = "telefon", length = 30)
+    private String telefon;
 
     @Column(name = "strasse", nullable = false, length = 100)
     private String strasse;
@@ -21,7 +27,6 @@ public class Lieferadresse {
     @JoinColumn(name = "plz", nullable = false)
     private Ort ort;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "kundennr", nullable = false)
-    private Kunde kunde;
+    @OneToOne(mappedBy = "kontaktinfo")
+    private Lieferant lieferant;
 }

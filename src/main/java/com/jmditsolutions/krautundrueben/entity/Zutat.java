@@ -21,13 +21,13 @@ public class Zutat {
     @Column(name = "bestand", nullable = false, precision = 10, scale = 2)
     private BigDecimal bestand = BigDecimal.ZERO;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ernaehrungskategorie")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ernaehrungskategorienr")
     private Ernaehrungskategorie ernaehrungskategorie;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "allergen")
-    private Allergen allergen; // see design note above about single allergen
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "allergenenr")
+    private Allergene allergen;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "naehrstoffnr", unique = true)

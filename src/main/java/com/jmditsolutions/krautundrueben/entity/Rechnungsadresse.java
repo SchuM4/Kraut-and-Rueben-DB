@@ -1,6 +1,5 @@
 package com.jmditsolutions.krautundrueben.entity;
 
-import com.jmditsolutions.krautundrueben.embeddable.Adresse;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,8 +11,15 @@ public class Rechnungsadresse {
     @Column(name = "rechnungsadressenr")
     private Integer id;
 
-    @Embedded
-    private Adresse adresse;
+    @Column(name = "strasse", nullable = false, length = 100)
+    private String strasse;
+
+    @Column(name = "hausnummer", nullable = false, length = 10)
+    private String hausnummer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plz", nullable = false)
+    private Ort ort;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "kundennr", nullable = false, unique = true)

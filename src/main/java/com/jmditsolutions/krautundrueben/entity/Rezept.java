@@ -25,13 +25,13 @@ public class Rezept {
     @Column(name = "portionen", nullable = false)
     private Integer portionen = 1;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ernaehrungskategorie")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ernaehrungskategorienr")
     private Ernaehrungskategorie ernaehrungskategorie;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "allergen")
-    private Allergen allergen;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "allergenenr")
+    private Allergene allergen;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "naehrstoffnr", unique = true)
