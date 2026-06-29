@@ -140,7 +140,7 @@ CREATE TABLE bestellung
     bestellungsnr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     kundennr INTEGER NOT NULL REFERENCES kunde(kundennr),
     bestelldatum DATE NOT NULL DEFAULT CURRENT_DATE,
-    rechnungsbetrag NUMERIC(10,2) NOT NULL DEFAULT 0
+    rerechnungsbetrag NUMERIC(10,2) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE zahlungsinfo
