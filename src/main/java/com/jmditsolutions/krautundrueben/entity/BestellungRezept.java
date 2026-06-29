@@ -1,9 +1,15 @@
 package com.jmditsolutions.krautundrueben.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "bestellung_rezept")
 public class BestellungRezept {
@@ -13,6 +19,7 @@ public class BestellungRezept {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("bestellungsnr")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "bestellungsnr")
     private Bestellung bestellung;
 

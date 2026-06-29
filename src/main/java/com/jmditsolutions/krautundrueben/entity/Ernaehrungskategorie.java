@@ -1,7 +1,11 @@
 package com.jmditsolutions.krautundrueben.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ernaehrungskategorie")
 public class Ernaehrungskategorie {
