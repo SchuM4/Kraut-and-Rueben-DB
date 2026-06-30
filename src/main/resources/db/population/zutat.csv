@@ -1,0 +1,40 @@
+lieferantenname,bezeichnung,bestand,protein_g,kohlenhydrate_g,zucker_g,fett_g,gesaett_fettsaeuren_g,ballaststoffe_g,kalorien_kcal,kalorien_kj,natrium_g,bezugsmenge,einheit
+Frische Backstube Nord,Weizenmehl Type 405,50,10,70,1,1,0.2,3.5,348,1456,0.002,1,Kilogramm
+Frische Backstube Nord,Roggenmehl,35,8.5,63,1,1.5,0.3,8.5,319,1335,0.003,1,Kilogramm
+Frische Backstube Nord,Vollkornbrot,28,8,41,3,3,0.6,7,215,900,0.45,1,Stück
+Frische Backstube Nord,Brötchen,100,8,50,2,2,0.4,3,270,1130,0.5,1,Stück
+Frische Backstube Nord,Hefe,80,40,33,0,2,0.3,27,290,1213,0.05,42,Gramm
+Gemüsehof Sonnenfeld,Tomaten,60,0.9,3.9,2.6,0.2,0.03,1.2,18,75,0.005,1,Kilogramm
+Gemüsehof Sonnenfeld,Gurken,45,0.7,3.6,1.7,0.1,0.02,0.5,15,63,0.002,1,Kilogramm
+Gemüsehof Sonnenfeld,Karotten,70,0.9,9.6,4.7,0.2,0.03,2.8,41,172,0.069,1,Kilogramm
+Gemüsehof Sonnenfeld,Zwiebeln,55,1.1,9.3,4.2,0.1,0.02,1.7,40,167,0.004,1,Kilogramm
+Gemüsehof Sonnenfeld,Kartoffeln,40,2,17,0.8,0.1,0.02,2.2,77,322,0.006,2.5,Kilogramm
+Gemüsehof Sonnenfeld,Paprika,38,1,6,4.2,0.3,0.05,2.1,31,130,0.003,1,Kilogramm
+Gemüsehof Sonnenfeld,Spinat,25,2.9,1.4,0.4,0.4,0.06,2.2,23,96,0.079,500,Gramm
+Gemüsehof Sonnenfeld,Brokkoli,30,2.8,7,1.7,0.4,0.04,2.6,34,142,0.033,1,Kilogramm
+Bio-Metzgerei Heumann,Hähnchenbrustfilet,45,23,0,0,1.2,0.3,0,110,460,0.07,1,Kilogramm
+Bio-Metzgerei Heumann,Rinderhackfleisch,30,20,0,0,15,6,0,225,941,0.08,1,Kilogramm
+Bio-Metzgerei Heumann,Schweineschnitzel,25,21,0,0,7,2.5,0,150,628,0.06,1,Kilogramm
+Bio-Metzgerei Heumann,Bio-Eier,50,13,0.7,0.7,11,3.1,0,155,649,0.142,10,Stück
+Fischmarkt Köln GmbH,Lachsfilet,20,20,0,0,13,2.5,0,208,870,0.059,1,Kilogramm
+Fischmarkt Köln GmbH,Garnelen,18,24,0.2,0,0.3,0.1,0,99,414,0.566,500,Gramm
+Fischmarkt Köln GmbH,Thunfisch in Dosen,80,26,0,0,1,0.3,0,116,485,0.4,1,Dose
+Käserei Allgäu Frisch,Gouda,25,25,2.2,2.2,27,18,0,356,1490,0.819,1,Kilogramm
+Käserei Allgäu Frisch,Mozzarella,40,18,2.2,1,22,14,0,280,1172,0.373,250,Gramm
+Käserei Allgäu Frisch,Vollmilch,60,3.3,4.8,4.8,3.5,2.3,0,64,268,0.044,1,Liter
+Käserei Allgäu Frisch,Sahne,30,2.4,3.4,3.4,30,19,0,292,1222,0.043,500,Milliliter
+Käserei Allgäu Frisch,Butter,35,0.7,0.6,0.6,83,53,0,741,3101,0.011,250,Gramm
+Käserei Allgäu Frisch,Joghurt Natur,45,3.5,4.7,4.7,3.5,2.3,0,61,255,0.05,500,Gramm
+Mühlenbäckerei Schwabenland,Vollkornnudeln,40,13,62,2.6,2.5,0.4,9,348,1456,0.006,500,Gramm
+Mühlenbäckerei Schwabenland,Basmatireis,50,7.5,78,0.1,0.6,0.1,1.3,349,1461,0.005,1,Kilogramm
+Mühlenbäckerei Schwabenland,Haferflocken,55,13,58,1,7,1.3,10,372,1557,0.006,500,Gramm
+Mühlenbäckerei Schwabenland,Couscous,45,12.8,72,0.1,1.8,0.3,5,376,1574,0.01,500,Gramm
+Gewürzhandel Rheinland,Salz,20,0,0,0,0,0,0,0,0,38.7,1,Kilogramm
+Gewürzhandel Rheinland,Pfeffer schwarz,25,10.4,38.3,0.6,3.3,1.4,25,251,1050,0.02,100,Gramm
+Gewürzhandel Rheinland,Paprikapulver,20,14,34,10,13,2.2,35,282,1180,0.068,100,Gramm
+Gewürzhandel Rheinland,Currypulver,18,12,41,3,14,1.5,33,325,1360,0.052,100,Gramm
+Gewürzhandel Rheinland,Olivenöl,30,0,0,0,100,14,0,884,3700,0.002,1,Liter
+Bio-Hof Sachsenland,Bio-Honig,22,0.3,80,80,0,0,0.2,304,1272,0.004,500,Glas
+Bio-Hof Sachsenland,Bio-Apfelsaft,40,0.1,11,10,0,0,0.2,46,192,0.005,1,Flasche
+Bio-Hof Sachsenland,Linsen,35,24,52,2,1.5,0.2,11,314,1314,0.006,500,Gramm
+Bio-Hof Sachsenland,Kichererbsen,60,19,45,8,6,0.6,12,316,1322,0.024,400,Dose
