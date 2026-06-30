@@ -45,7 +45,7 @@ einkaufsauftrag → rezept_zutat`
 pip install -r requirements.txt --break-system-packages
 
 # Schema muss bereits existieren (init_migration.sql vorher ausführen)
-python populate_db.py \
+python3 populate_db.py \
     --host localhost --port 5432 \
     --dbname krautAndRueben \
     --user krautAndRueben --password krautAndRueben
