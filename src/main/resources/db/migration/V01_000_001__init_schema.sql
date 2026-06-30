@@ -31,7 +31,7 @@ CREATE TABLE ernaehrungskategorie
 
 CREATE TABLE allergen
 (
-    allergenenr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    allergennr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     bezeichnung VARCHAR(100) NOT NULL
 );
 
