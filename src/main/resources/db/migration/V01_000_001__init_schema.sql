@@ -98,7 +98,7 @@ CREATE TABLE zutat_ernaehrungskategorie
 CREATE TABLE zutat_allergen
 (
     zutatennr INTEGER NOT NULL REFERENCES zutat(zutatennr),
-    allergennr INTEGER NOT NULL REFERENCES allergen(allergenenr),
+    allergennr INTEGER NOT NULL REFERENCES allergen(allergennr),
     PRIMARY KEY(zutatennr, allergennr)
 );
 
@@ -126,7 +126,7 @@ CREATE TABLE bestellung
     bestellungsnr INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     kundennr INTEGER NOT NULL REFERENCES kunde(kundennr),
     bestelldatum DATE NOT NULL DEFAULT CURRENT_DATE,
-    rerechnungsbetrag NUMERIC(10,2) NOT NULL DEFAULT 0
+    rechnungsbetrag NUMERIC(10,2) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE bestellung_zutat

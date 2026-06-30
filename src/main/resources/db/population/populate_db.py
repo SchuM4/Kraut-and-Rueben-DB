@@ -121,7 +121,7 @@ def populate_allergen(cur):
     ids = {}
     for row in read_csv("allergen.csv"):
         cur.execute(
-            "INSERT INTO allergen (bezeichnung) VALUES (%s) RETURNING allergenenr",
+            "INSERT INTO allergen (bezeichnung) VALUES (%s) RETURNING allergennr",
             (row["bezeichnung"],),
         )
         ids[row["bezeichnung"]] = cur.fetchone()[0]
