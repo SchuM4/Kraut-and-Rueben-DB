@@ -18,11 +18,16 @@ public interface RezeptRepository extends JpaRepository<Rezept,Integer> {
         """)
     List<Zutat> findZutatenByRezeptname(@Param("rezeptname") String rezeptname);
 
-    // Auswahl aller Rezepte einer bestimmten Ernährungskategorie
+    // Auswahl aller Rezepte einer bestimmten Ernährungskategorie (alle Zutaten!)
     @Query("""
         SELECT DISTINCT rz.rezeptnr FROM RezeptZutat rz
-        JOIN ZutatErnaehrungskategorie zek ON zek.zutatennr = rz.zutatnr
-        WHERE zek.ernaehrungskategorienr.bezeichnung = :kategorie
+            WHERE NOT EXISTS (
+                SELECT 1 FROM RezeptZutat rz2
+                WHERE rz2.rezeptnr = rz.rezeptnr
+                AND NOT EXISTS (
+                    SELECT 1 FROM ZutatErnaehrungskategorie zek
+                    WHERE zek.zutatennr = rz2.zutatnr
+                    AND zek.ernaehrungskategorienr.bezeichnung = :kategorie
         """)
     List<Rezept> findByErnaehrungskategorie(@Param("kategorie") String kategorie);
 
@@ -52,7 +57,7 @@ public interface RezeptRepository extends JpaRepository<Rezept,Integer> {
         """)
     List<Rezept> findRezepteMitWenigerAlsFuenfZutaten();
 
-    // Rezepte mit weniger als 5 Zutaten UND bestimmter Ernährungskategorie
+    // Rezepte mit weniger als 5 Zutaten UND bestimmter Ernährungskategorie (alle Zutaten!)
     @Query("""
         SELECT r FROM Rezept r
         WHERE r IN (
@@ -62,9 +67,12 @@ public interface RezeptRepository extends JpaRepository<Rezept,Integer> {
         )
         AND EXISTS (
             SELECT 1 FROM RezeptZutat rz
-            JOIN ZutatErnaehrungskategorie zek ON zek.zutatennr = rz.zutatnr
-            WHERE rz.rezeptnr = r
-            AND zek.ernaehrungskategorienr.bezeichnung = :kategorie
+                    WHERE rz.rezeptnr = r
+                    AND NOT EXISTS (
+                        SELECT 1 FROM ZutatErnaehrungskategorie zek
+                        WHERE zek.zutatennr = rz.zutatnr
+                        AND zek.ernaehrungskategorienr.bezeichnung = :kategorie
+                    )
         )
         """)
     List<Rezept> findWenigerAlsFuenfZutatenUndKategorie(@Param("kategorie") String kategorie);
