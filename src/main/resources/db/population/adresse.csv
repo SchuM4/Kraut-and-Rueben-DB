@@ -1,0 +1,22 @@
+strasse,hausnummer,plz,kunde_email,ist_rechnungsadresse
+Mühlenweg,4,20095,anna.mueller@example.de,true
+Speicherstraße,1,20354,anna.mueller@example.de,false
+Schillerstraße,12,10115,lukas.schmidt@example.de,true
+Leopoldstraße,22,80331,hannah.schneider@example.de,true
+Rheinallee,7,50667,max.fischer@example.de,true
+Bergstraße,3,60311,lea.weber@example.de,true
+Zeil,50,60486,lea.weber@example.de,false
+Königsallee,19,40210,paul.meyer@example.de,true
+Friedrichstraße,45,10117,mia.wagner@example.de,true
+Hauptstraße,8,70173,felix.becker@example.de,true
+Goethestraße,16,04109,emma.hoffmann@example.de,true
+Lindenallee,2,44135,jonas.schaefer@example.de,true
+Marktplatz,9,45127,sophie.koch@example.de,true
+Kettwiger Straße,12,45127,sophie.koch@example.de,false
+Gartenweg,11,20354,leon.bauer@example.de,true
+Schulstraße,5,80333,marie.richter@example.de,true
+Bahnhofstraße,27,50668,tim.klein@example.de,true
+Wiesenweg,14,60486,laura.wolf@example.de,true
+Parkstraße,6,70182,niklas.schroeder@example.de,true
+Talstraße,31,22085,julia.neumann@example.de,true
+Birkenweg,18,10785,tom.schwarz@example.de,true
