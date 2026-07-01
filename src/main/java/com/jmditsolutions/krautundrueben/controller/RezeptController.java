@@ -1,14 +1,9 @@
 package com.jmditsolutions.krautundrueben.controller;
 
-import com.jmditsolutions.krautundrueben.entity.Lieferant;
 import com.jmditsolutions.krautundrueben.entity.Rezept;
 import com.jmditsolutions.krautundrueben.entity.Zutat;
 import com.jmditsolutions.krautundrueben.service.RezeptService;
-import com.jmditsolutions.krautundrueben.service.ZutatService;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
