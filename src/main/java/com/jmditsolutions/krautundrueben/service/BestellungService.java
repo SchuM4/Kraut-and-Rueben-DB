@@ -1,8 +1,8 @@
 package com.jmditsolutions.krautundrueben.service;
 
+import com.jmditsolutions.krautundrueben.dto.BestellungDto;
 import com.jmditsolutions.krautundrueben.dto.DurchschnittsNaehrwerteDto;
 import com.jmditsolutions.krautundrueben.dto.KundeBestellAnzahlDto;
-import com.jmditsolutions.krautundrueben.entity.Bestellung;
 import com.jmditsolutions.krautundrueben.repository.BestellungRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -30,14 +30,21 @@ public class BestellungService {
         return result;
     }
 
-    public List<Bestellung> getTeureBestellungenByKundeNachname(String nachname, BigDecimal betrag) {
+    public List<BestellungDto> getTeureBestellungenByKundeNachname(String nachname, BigDecimal betrag) {
         if (nachname == null || nachname.isBlank()) {
             throw new IllegalArgumentException("Nachname darf nicht leer sein");
         }
         if (betrag == null || betrag.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Betrag darf nicht negativ sein");
         }
-        return bestellungRepository.findTeureBestellungenByKundeNachname(nachname, betrag);
+        return bestellungRepository.findTeureBestellungenByKundeNachname(nachname, betrag)
+                .stream()
+                .map(b -> new BestellungDto(
+                        b.getId(),
+                        b.getBestelldatum(),
+                        b.getRechnungsbetrag()
+                ))
+                .toList();
     }
 
     public List<KundeBestellAnzahlDto> getBestellAnzahlJeKunde() {

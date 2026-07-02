@@ -1,8 +1,8 @@
 package com.jmditsolutions.krautundrueben.controller;
 
+import com.jmditsolutions.krautundrueben.dto.BestellungDto;
 import com.jmditsolutions.krautundrueben.dto.DurchschnittsNaehrwerteDto;
 import com.jmditsolutions.krautundrueben.dto.KundeBestellAnzahlDto;
-import com.jmditsolutions.krautundrueben.entity.Bestellung;
 import com.jmditsolutions.krautundrueben.service.BestellungService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +30,10 @@ public class BestellungController {
     }
 
     @GetMapping("/teure")
-    public ResponseEntity<List<Bestellung>> getTeureBestellungenByKundeNachname(@RequestParam String nachname, @RequestParam BigDecimal betrag) {
-        List<Bestellung> bestellungen = bestellungService.getTeureBestellungenByKundeNachname(nachname, betrag);
+    public ResponseEntity<List<BestellungDto>> getTeureBestellungenByKundeNachname(
+            @RequestParam String nachname,
+            @RequestParam BigDecimal betrag) {
+        List<BestellungDto> bestellungen = bestellungService.getTeureBestellungenByKundeNachname(nachname, betrag);
         return bestellungen.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(bestellungen);
     }
 
