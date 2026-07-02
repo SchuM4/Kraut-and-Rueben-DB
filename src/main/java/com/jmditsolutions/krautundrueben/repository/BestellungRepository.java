@@ -22,7 +22,7 @@ public interface BestellungRepository extends JpaRepository<Bestellung, Integer>
             AVG(bz.zutatnr.zuckerG)
         )
         FROM BestellungZutat bz
-        WHERE bz.bestellungsnr.kundennr = :kundennr
+        WHERE bz.bestellungsnr.kundennr.id = :kundennr
         """)
     DurchschnittsNaehrwerteDto findDurchschnittsNaehrwerteByKunde(@Param("kundennr") Integer kundennr);
 
