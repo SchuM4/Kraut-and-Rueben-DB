@@ -24,7 +24,7 @@ public class BestellungController {
     }
 
     @GetMapping("/durchschnitt-naehrwert")
-    public ResponseEntity<DurchschnittsNaehrwerteDto> getDurchschnittlicheNaehrwerteByKunde(Integer kundennr) {
+    public ResponseEntity<DurchschnittsNaehrwerteDto> getDurchschnittlicheNaehrwerteByKunde(@RequestParam Integer kundennr) {
         DurchschnittsNaehrwerteDto naehrwerteDto = bestellungService.getDurchschnittsNaehrwerteByKunde(kundennr);
         return naehrwerteDto == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(naehrwerteDto);
     }
