@@ -3,6 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/krautAndRueben
     username: krautAndRueben
     password: krautAndRueben
+    driver-class-name: org.postgresql.Driver
 
   flyway:
     enabled: true
@@ -11,7 +12,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:

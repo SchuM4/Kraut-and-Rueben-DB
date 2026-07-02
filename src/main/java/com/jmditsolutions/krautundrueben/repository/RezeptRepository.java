@@ -20,15 +20,17 @@ public interface RezeptRepository extends JpaRepository<Rezept,Integer> {
 
     // Auswahl aller Rezepte einer bestimmten Ernährungskategorie (alle Zutaten!)
     @Query("""
-        SELECT DISTINCT rz.rezeptnr FROM RezeptZutat rz
-            WHERE NOT EXISTS (
-                SELECT 1 FROM RezeptZutat rz2
-                WHERE rz2.rezeptnr = rz.rezeptnr
-                AND NOT EXISTS (
-                    SELECT 1 FROM ZutatErnaehrungskategorie zek
-                    WHERE zek.zutatennr = rz2.zutatnr
-                    AND zek.ernaehrungskategorienr.bezeichnung = :kategorie
-        """)
+    SELECT DISTINCT rz.rezeptnr FROM RezeptZutat rz
+    WHERE NOT EXISTS (
+        SELECT 1 FROM RezeptZutat rz2
+        WHERE rz2.rezeptnr = rz.rezeptnr
+        AND NOT EXISTS (
+            SELECT 1 FROM ZutatErnaehrungskategorie zek
+            WHERE zek.zutatennr = rz2.zutatnr
+            AND zek.ernaehrungskategorienr.bezeichnung = :kategorie
+        )
+    )
+    """)
     List<Rezept> findByErnaehrungskategorie(@Param("kategorie") String kategorie);
 
     // Auswahl aller Rezepte, die eine gewisse Zutat enthalten
